@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Casa da Vó</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+    <header>
+       <div class="icones-sup">
+        <div class="icones">
+          <a href=-""><i class="fab fa-instagram"></i></a><br> 
+          <a href=-""><i class="fab fa-facebook-f"></i></a><br> 
+          <a href=-""><i class="fab fa-whatsapp"></i></a><br> 
+        </div>
+       </div>
+
+      <div class="logo"><img src="https://image.flaticon.com/icons/svg/1753/1753930.svg"></div>
+
+       <nav>
+         <a href="index.html">Home</a>
+         <a href="cardapio.html">Cardápio</a>
+         <a href="sobre.html">Sobre</a>
+         <a href="galeria.html">Galeria</a>
+         <a href="pedidos.html">Pedidos</a>
+       </nav>
+</header>
+
+
+    <!-- PEDIDO -->
+    <div class="container">
+      <h1>Reserva</h1>
+      <form action="" method="" id="form-pedidos" >
+        <div>
+          <label for="txtnome">Nome</label>
+          <input type="text" name="txtnome" placeholder="Digite seu Nome">
+        </div>
+        
+        <div>
+          <label for="txtcelular">Celular</label>
+          <input type="text" name="txtcelular" placeholder="(19) 999999999">
+        </div>
+
+        <div>
+          <label for="txtpedido">Pedido</label>
+          <textarea name="txtpedido" id="txtpedido" cols="30" rows="5"></textarea>
+        </div>
+
+        <div>
+          <button onclick="PegaPedido()">
+            <!-- <a href="https://api.whatsapp.com/send?phone=5519994425383&text=Oi%20eu%20sou%20%3Cnome_cliente%3E%0AMeu%20Telefone%20%C3%A9%20%3Ctelefone_cliente%3E%0AMeu%20Pedido%0A%0A">-->ENVIAR PEDIDO (WHATSAPP)</a> </button>
+          
+        </div>
+      </form>
+    </div>
+
+    <div class="footer">
+  <div id="site">
+	
+		<div id="col1">
+      <h2>Funcionamos todos os dias das 10:00 as 00:00 </h2>
+       
+      </div>
+		  <div id="col2"><h2>Reservas:<br>
+De domingo a quinta pelo Whatsapp</h2></div>
+		  <div id="col3"> 
+        <h2>Acesso para deficientes<br>
+                Terraço com bar<br>
+                Manobrista<br>
+                Aceitamos todos os Cartões</h2></div>
+                      <div class="footer-bottom"><h4>|Developed by Diego Henrique Salmazo Vieira|</h4></div>   
+  </div>
+</div>  
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    function PegaPedido(){
+      let nome = $('#txtnome').val();
+      let celular = 5519995254616;
+      let pedido = $('#txtpedido').val();
+      let cabecalho = '*Oi eu sou* ' + nome + '\n*Meu pedido é*: ' + pedido;
+      let mensagem = encodeURIComponent(cabecalho);
+      let url = `https://api.whatsapp.com/send?phone=${celular}&text=${mensagem}`;
+      window.open(url, 'blank')
+      // alert('Nome do Cliente:' + nome + '\nCelular: ' + celular + '\nPedido: ' + url);
+    }
+  </script>
+
+  </body>
+</html>
